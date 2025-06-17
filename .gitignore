@@ -1,0 +1,21 @@
+# Binaries
+**/Binaries/*
+**/Intermediate/*
+**/Saved/*
+
+# User-specific files
+*.suo
+*.user
+*.userprefs
+*.log
+*.vs/
+
+# Compiled binary
+*.dll
+*.exe
+*.pdb
+*.obj
+
+# Ignore build artifacts from UE
+.vscode/
+DerivedDataCache/
