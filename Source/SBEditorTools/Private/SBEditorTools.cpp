@@ -24,6 +24,7 @@
 
 // Add the DataTable Importer here.
 #include "Importer/FSBCharacterTableImporter.h" // SBCharacterTableProperty
+#include "Importer/FSBPhotoModeImageTableImporter.h" // SBPhotoModeImageTableProperty
 
 #define LOCTEXT_NAMESPACE "FSBEditorToolsModule"
 
@@ -74,14 +75,32 @@ void FSBEditorToolsModule::GenerateDataTableMenu(FMenuBuilder& MenuBuilder)
         FSlateIcon(),
         FUIAction(FExecuteAction::CreateRaw(this, &FSBEditorToolsModule::OnCharacterTableClicked))
     );
+
+    // Menu for PhotoModeImageTable
+    MenuBuilder.AddMenuEntry(
+        LOCTEXT("PhotoModeImageTableEntry", "PhotoModeImageTable"),
+        LOCTEXT("PhotoModeImageTableEntry_Tooltip", "Run PhotoModeImageTable tool"),
+        FSlateIcon(),
+        FUIAction(FExecuteAction::CreateRaw(this, &FSBEditorToolsModule::OnPhotoModeImageTableClicked))
+    );
 }
 
+/** Handler for CharacterTable */
 void FSBEditorToolsModule::OnCharacterTableClicked()
 {
     UE_LOG(LogTemp, Log, TEXT("OnCharacterTableClicked Start."));
     TUniquePtr<FSBDataTableImporter> Importer = MakeUnique<FSBCharacterTableImporter>();
     Execute(MoveTemp(Importer));
     UE_LOG(LogTemp, Log, TEXT("OnCharacterTableClicked End."));
+}
+
+/** Handler for PhotoModeImageTable */
+void FSBEditorToolsModule::OnPhotoModeImageTableClicked()
+{
+    UE_LOG(LogTemp, Log, TEXT("OnPhotoModeImageTableClicked Start."));
+    TUniquePtr<FSBDataTableImporter> Importer = MakeUnique<FSBPhotoModeImageTableImporter>();
+    Execute(MoveTemp(Importer));
+    UE_LOG(LogTemp, Log, TEXT("OnPhotoModeImageTableClicked End."));
 }
 
 void FSBEditorToolsModule::Execute(TUniquePtr<FSBDataTableImporter> Importer)

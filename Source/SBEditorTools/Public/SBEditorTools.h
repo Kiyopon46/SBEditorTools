@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Modules/ModuleManager.h"
 #include "Importer/FSBDataTableImporter.h"
+#include "Importer/FSBPhotoModeImageTableImporter.h"
 
 class FSBEditorToolsModule : public IModuleInterface
 {
@@ -58,5 +59,8 @@ private:
 
     /** Handler for CharacterTable. */
     void OnCharacterTableClicked();
+
+    /** Handler for PhotoModeImageTable. */
+    void OnPhotoModeImageTableClicked();
 
 };
