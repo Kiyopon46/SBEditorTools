@@ -17,7 +17,7 @@ DataTable の追加など、プロジェクトのアップデートは主に [SB
 
 ---
 
-具体的な **使用手順** 以降は [SBDataTable](https://github.com/Kiyopon46/SBDataTable/) の [README-ja.md](https://github.com/Kiyopon46/SBDataTable/blob/main/docs/ja/README-ja.md) をご覧ください。
+具体的な **使用手順** 以降は [SBDataTable の README-ja.md](https://github.com/Kiyopon46/SBDataTable/blob/main/docs/ja/README-ja.md) をご覧ください。
 
 ## ⚠️ 要注意
 コンパイルおよび実行時にパッキングの問題が発生する可能性があります。その場合は、Windows11のスマートアプリコントロールを無効にする必要があります。既に無効にしている場合、または無効にできる場合にのみ、この本機能をご利用ください。
