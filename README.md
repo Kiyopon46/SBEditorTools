@@ -24,3 +24,16 @@ For detailed **usage instructions**, please refer to the [README.md of SBDataTab
 Depending on your system configuration, you may encounter issues during compilation or execution due to Windows application control policies.  
 If that happens, you may need to **disable Smart App Control** on Windows 11.  
 Please only use this tool if Smart App Control is already disabled or can be safely disabled on your system.
+
+## ⚠️ Usage Restrictions
+
+This repository is not distributed under any formal open-source license.  
+It is intended primarily for sharing technical knowledge within the [**AyakaMods** community](https://discord.gg/stellarblademodding), not for wide public distribution of the source code.
+
+If you use the tools in this repository to create MODs that **significantly degrade the gameplay experience** of **Stellar Blade** (e.g., drastically lowering a boss's Max HP),  
+such use is tolerated **only for personal or private use among trusted individuals**.  
+**Public distribution** of such MODs, including on social media or mod-sharing platforms, is strictly prohibited.
+
+On the other hand, MODs that **enhance the gameplay experience** are welcome to be shared publicly.
+
+If you are unsure whether your MOD would significantly degrade the experience, **please refrain from using this repository**.
