@@ -16,6 +16,8 @@ public:
 	virtual void ShutdownModule() override;
 
 private:
+    TArray<TPair<FString, TSharedPtr<FSBDataTableImporter>>> CachedImporterArray;
+
     void AddMenuBarMenu(class FMenuBarBuilder& MenuBarBuilder);
     void GenerateSBToolsMenu(class FMenuBuilder& MenuBuilder);
     void GenerateDataTableMenu(class FMenuBuilder& MenuBuilder);

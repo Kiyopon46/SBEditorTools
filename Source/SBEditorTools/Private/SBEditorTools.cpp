@@ -34,6 +34,9 @@ void FSBEditorToolsModule::StartupModule()
 		FMenuBarExtensionDelegate::CreateRaw(this, &FSBEditorToolsModule::AddMenuBarMenu));
 
 	LevelEditorModule.GetMenuExtensibilityManager()->AddExtender(MenuExtender);
+
+    FSBDataTableImporterFactory Factory;
+    CachedImporterArray = Factory.GetImporterMapSortedByName();
 }
 
 void FSBEditorToolsModule::ShutdownModule()
@@ -64,16 +67,22 @@ void FSBEditorToolsModule::GenerateSBToolsMenu(FMenuBuilder& MenuBuilder)
 
 void FSBEditorToolsModule::GenerateDataTableMenu(FMenuBuilder& MenuBuilder)
 {
-    TArray<TSharedPtr<FSBDataTableImporter>> ImporterArray = FSBDataTableImporterFactory().GetInstanceArray();
-
-    for (const TSharedPtr<FSBDataTableImporter>& Importer : ImporterArray)
+    for (const TPair<FString, TSharedPtr<FSBDataTableImporter>>& Pair : CachedImporterArray)
     {
-        FSBMenuEntry MenuEntry = Importer->GetMenuEntry();
+        FString DataTableName = Pair.Key;
+        FSBDataTableImporter* Importer = Pair.Value.Get();
+
+        FText Label = FText::FromString(DataTableName);
+        FText Tooltip = FText::Format(
+            NSLOCTEXT("SBTools", "DataTableTooltipFormat", "Run {0} tool"),
+            Label
+        );
+
         MenuBuilder.AddMenuEntry(
-            MenuEntry.Label,
-            MenuEntry.Tooltip,
+            Label,
+            Tooltip,
             FSlateIcon(),
-            FUIAction(FExecuteAction::CreateLambda(MenuEntry.Callback))
+            FUIAction(FExecuteAction::CreateLambda(Importer->GetMenuCallback()))
         );
     }
 }
