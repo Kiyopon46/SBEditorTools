@@ -22,6 +22,17 @@ private:
     void GenerateSBToolsMenu(class FMenuBuilder& MenuBuilder);
     void GenerateDataTableMenu(class FMenuBuilder& MenuBuilder);
 
+    void HandleJsonFiles();
+    void HandleFolder();
+
+    TArray<FString> SelectJsonFiles();
+
+    TArray<FString> SelectJsonFolder();
+
+    void ProcessAllFiles(TArray<FString> JsonPaths);
+
+    TSharedPtr<FJsonObject> LoadJsonDataTableObject(const FString& FilePath);
+
     ///**
     // * Main processing called for each handlers.
     // * @param Importer Importer for each DataTable
